@@ -401,7 +401,7 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex;
   align-items: center;
   margin-top: 14px;
-  padding: 8px 34px 8px 0;
+  padding: 8px 0;
   isolation: isolate;
 }
 .workat-full {
@@ -413,11 +413,11 @@ a { color: inherit; text-decoration: none; }
 }
 .workat-growth-cue {
   position: absolute;
-  z-index: 1;
-  left: -3px;
-  top: -28px;
-  width: calc(100% + 30px);
-  height: 64px;
+  z-index: 3;
+  left: 2px;
+  top: 5px;
+  width: 44px;
+  height: 34px;
   pointer-events: none;
   overflow: visible;
 }
@@ -429,42 +429,42 @@ a { color: inherit; text-decoration: none; }
   stroke-linejoin: round;
 }
 .workat-growth-backdrop {
-  stroke: rgba(255, 255, 255, 0.82);
-  stroke-width: 7.5;
-  opacity: 0.78;
-  stroke-dasharray: 176;
-  stroke-dashoffset: 176;
+  stroke: rgba(29, 78, 216, 0.22);
+  stroke-width: 6.8;
+  opacity: 0.64;
+  stroke-dasharray: 68;
+  stroke-dashoffset: 68;
   animation: workat-growth-draw 3.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
 }
 .workat-growth-line {
   stroke: url("#workatGrowthGradient");
-  stroke-width: 3.4;
-  stroke-dasharray: 176;
-  stroke-dashoffset: 176;
-  filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.24));
+  stroke-width: 3.2;
+  stroke-dasharray: 68;
+  stroke-dashoffset: 68;
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.34));
   animation: workat-growth-draw 3.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
 }
 .workat-growth-arrow {
-  stroke: #1d4ed8;
-  stroke-width: 3.4;
-  stroke-dasharray: 28;
-  stroke-dashoffset: 28;
-  filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.22));
+  stroke: #fff;
+  stroke-width: 3.2;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.34));
   animation: workat-growth-arrow 3.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
 }
 .workat-growth-point {
-  fill: #2563eb;
-  stroke: #fff;
-  stroke-width: 2.4;
+  fill: #fff;
+  stroke: #2563eb;
+  stroke-width: 1.9;
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  filter: drop-shadow(0 5px 10px rgba(37, 99, 235, 0.2));
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.28));
   animation: workat-growth-point 3.8s ease-in-out infinite;
   animation-delay: var(--point-delay);
 }
 .workat-growth-point.is-last {
-  fill: #1d4ed8;
+  fill: #eff6ff;
   animation-name: workat-growth-point, workat-growth-last-pulse;
 }
 .wm-logo { height: 16px; width: auto; margin-left: 8px; }
@@ -813,13 +813,13 @@ a { color: inherit; text-decoration: none; }
   82%, 100% { transform: translateX(82%); opacity: 0; }
 }
 @keyframes workat-growth-draw {
-  0%, 16% { stroke-dashoffset: 176; opacity: 0; }
+  0%, 16% { stroke-dashoffset: 68; opacity: 0; }
   28% { opacity: 1; }
   58%, 78% { stroke-dashoffset: 0; opacity: 1; }
   100% { stroke-dashoffset: 0; opacity: 0; }
 }
 @keyframes workat-growth-arrow {
-  0%, 48% { stroke-dashoffset: 28; opacity: 0; }
+  0%, 48% { stroke-dashoffset: 20; opacity: 0; }
   58%, 80% { stroke-dashoffset: 0; opacity: 1; }
   100% { stroke-dashoffset: 0; opacity: 0; }
 }
@@ -829,8 +829,8 @@ a { color: inherit; text-decoration: none; }
   100% { opacity: 0; transform: scale(0.72); }
 }
 @keyframes workat-growth-last-pulse {
-  0%, 52%, 100% { filter: drop-shadow(0 5px 10px rgba(37, 99, 235, 0.2)); }
-  64% { filter: drop-shadow(0 0 16px rgba(37, 99, 235, 0.58)); }
+  0%, 52%, 100% { filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.28)); }
+  64% { filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.72)); }
 }
 @keyframes teamat-preview-spotlight {
   0% { opacity: 0; transform: scale(0.982); box-shadow: 0 0 0 0 rgba(255,255,255,0), 0 18px 46px rgba(37, 99, 235, 0); }
