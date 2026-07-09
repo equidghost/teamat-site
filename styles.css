@@ -396,8 +396,77 @@ a { color: inherit; text-decoration: none; }
 .feature .visual#workat-preview { scroll-margin-top: 96px; }
 
 /* Workat 브랜드 lockup (서비스 섹션) */
-.workat-lockup { margin-top: 14px; }
-.workat-full { height: 34px; width: auto; display: block; }
+.workat-lockup {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 14px;
+  padding: 8px 34px 8px 0;
+  isolation: isolate;
+}
+.workat-full {
+  position: relative;
+  z-index: 2;
+  height: 34px;
+  width: auto;
+  display: block;
+}
+.workat-growth-cue {
+  position: absolute;
+  z-index: 1;
+  left: -3px;
+  top: -28px;
+  width: calc(100% + 30px);
+  height: 64px;
+  pointer-events: none;
+  overflow: visible;
+}
+.workat-growth-backdrop,
+.workat-growth-line,
+.workat-growth-arrow {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.workat-growth-backdrop {
+  stroke: rgba(255, 255, 255, 0.82);
+  stroke-width: 7.5;
+  opacity: 0.78;
+  stroke-dasharray: 176;
+  stroke-dashoffset: 176;
+  animation: workat-growth-draw 3.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+.workat-growth-line {
+  stroke: url("#workatGrowthGradient");
+  stroke-width: 3.4;
+  stroke-dasharray: 176;
+  stroke-dashoffset: 176;
+  filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.24));
+  animation: workat-growth-draw 3.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+.workat-growth-arrow {
+  stroke: #1d4ed8;
+  stroke-width: 3.4;
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.22));
+  animation: workat-growth-arrow 3.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+.workat-growth-point {
+  fill: #2563eb;
+  stroke: #fff;
+  stroke-width: 2.4;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 5px 10px rgba(37, 99, 235, 0.2));
+  animation: workat-growth-point 3.8s ease-in-out infinite;
+  animation-delay: var(--point-delay);
+}
+.workat-growth-point.is-last {
+  fill: #1d4ed8;
+  animation-name: workat-growth-point, workat-growth-last-pulse;
+}
 .wm-logo { height: 16px; width: auto; margin-left: 8px; }
 
 .workat-preview-shell {
@@ -743,6 +812,26 @@ a { color: inherit; text-decoration: none; }
   62% { opacity: 1; }
   82%, 100% { transform: translateX(82%); opacity: 0; }
 }
+@keyframes workat-growth-draw {
+  0%, 16% { stroke-dashoffset: 176; opacity: 0; }
+  28% { opacity: 1; }
+  58%, 78% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes workat-growth-arrow {
+  0%, 48% { stroke-dashoffset: 28; opacity: 0; }
+  58%, 80% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes workat-growth-point {
+  0%, 20% { opacity: 0; transform: scale(0.62); }
+  32%, 74% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.72); }
+}
+@keyframes workat-growth-last-pulse {
+  0%, 52%, 100% { filter: drop-shadow(0 5px 10px rgba(37, 99, 235, 0.2)); }
+  64% { filter: drop-shadow(0 0 16px rgba(37, 99, 235, 0.58)); }
+}
 @keyframes teamat-preview-spotlight {
   0% { opacity: 0; transform: scale(0.982); box-shadow: 0 0 0 0 rgba(255,255,255,0), 0 18px 46px rgba(37, 99, 235, 0); }
   22% { opacity: 1; transform: scale(1.012); box-shadow: 0 0 0 8px rgba(255,255,255,0.12), 0 22px 58px rgba(37, 99, 235, 0.2); }
@@ -796,6 +885,10 @@ a { color: inherit; text-decoration: none; }
   .task-chip,
   .hero-device,
   .hero-device::before,
+  .workat-growth-backdrop,
+  .workat-growth-line,
+  .workat-growth-arrow,
+  .workat-growth-point,
   .workat-preview-shell.is-guiding::before,
   .feature .visual#workat-preview:target .workat-preview-shell::before,
   .workat-preview-shell.is-guiding .preview-tabs,
@@ -819,6 +912,10 @@ a { color: inherit; text-decoration: none; }
   .teamat-cloud-field::after { opacity: 0.08 !important; }
   .flow-line { opacity: 0.28 !important; transform: none !important; }
   .task-chip { opacity: 0.84 !important; transform: none !important; }
+  .workat-growth-backdrop,
+  .workat-growth-line,
+  .workat-growth-arrow { opacity: 0.72 !important; stroke-dashoffset: 0 !important; }
+  .workat-growth-point { opacity: 0.85 !important; transform: none !important; }
   .nav-links a:not(.nav-cta)::after { transition: none; }
   .site-header { transition: none; }
 }
