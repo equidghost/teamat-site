@@ -414,12 +414,12 @@ a { color: inherit; text-decoration: none; }
 .workat-growth-cue {
   position: absolute;
   z-index: 3;
-  left: 2px;
-  top: 5px;
-  width: 44px;
-  height: 34px;
+  left: 4px;
+  top: 13px;
+  width: 32px;
+  height: 20px;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
 }
 .workat-growth-backdrop,
 .workat-growth-line,
@@ -430,7 +430,7 @@ a { color: inherit; text-decoration: none; }
 }
 .workat-growth-backdrop {
   stroke: rgba(29, 78, 216, 0.22);
-  stroke-width: 6.8;
+  stroke-width: 8.2;
   opacity: 0.64;
   stroke-dasharray: 68;
   stroke-dashoffset: 68;
@@ -438,7 +438,7 @@ a { color: inherit; text-decoration: none; }
 }
 .workat-growth-line {
   stroke: url("#workatGrowthGradient");
-  stroke-width: 3.2;
+  stroke-width: 4.2;
   stroke-dasharray: 68;
   stroke-dashoffset: 68;
   filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.34));
@@ -446,7 +446,7 @@ a { color: inherit; text-decoration: none; }
 }
 .workat-growth-arrow {
   stroke: #fff;
-  stroke-width: 3.2;
+  stroke-width: 4;
   stroke-dasharray: 20;
   stroke-dashoffset: 20;
   filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.34));
@@ -455,7 +455,7 @@ a { color: inherit; text-decoration: none; }
 .workat-growth-point {
   fill: #fff;
   stroke: #2563eb;
-  stroke-width: 1.9;
+  stroke-width: 2.2;
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
