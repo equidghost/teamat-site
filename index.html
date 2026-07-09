@@ -199,7 +199,7 @@
               <li><span class="check">✓</span><span><strong>워크톡 · 커뮤니티</strong> · 팀과 브랜드가 함께 소통하는 공간</span></li>
             </ul>
             <div style="margin-top:28px;">
-              <a class="btn btn-primary" href="#workat-preview">
+              <a class="btn btn-primary" href="#workat-preview" data-preview-guide-trigger>
                 Workat 미리보기
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
@@ -392,8 +392,12 @@
 
       var tabs = preview.querySelectorAll('[data-preview-role]');
       var mock = preview.querySelector('.workat-preview-mock');
+      var previewShell = preview.querySelector('.workat-preview-shell');
       var previewLink = preview.querySelector('[data-preview-link]');
       var previewLinkLabel = preview.querySelector('[data-preview-link-label]');
+      var guideTriggers = document.querySelectorAll('[data-preview-guide-trigger]');
+      var guideTimer = null;
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var setText = function (key, value) {
         var el = preview.querySelector('[data-preview-' + key + ']');
         if (el) el.textContent = value;
@@ -434,12 +438,40 @@
         }
         if (previewLinkLabel) previewLinkLabel.textContent = data.ctaText;
       };
+      var guidePreview = function () {
+        if (!previewShell) return;
+        previewShell.classList.remove('is-guiding');
+        // Restart the short cue even when the user clicks repeatedly.
+        void previewShell.offsetWidth;
+        previewShell.classList.add('is-guiding');
+        if (guideTimer) window.clearTimeout(guideTimer);
+        guideTimer = window.setTimeout(function () {
+          previewShell.classList.remove('is-guiding');
+        }, 1900);
+      };
 
       Array.prototype.forEach.call(tabs, function (tab) {
         tab.addEventListener('click', function () {
+          if (previewShell) previewShell.classList.remove('is-guiding');
           setRole(tab.getAttribute('data-preview-role'));
         });
       });
+      Array.prototype.forEach.call(guideTriggers, function (trigger) {
+        trigger.addEventListener('click', function (e) {
+          e.preventDefault();
+          preview.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'center'
+          });
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '#workat-preview');
+          }
+          window.setTimeout(guidePreview, prefersReducedMotion ? 0 : 260);
+        });
+      });
+      if (window.location.hash === '#workat-preview') {
+        window.setTimeout(guidePreview, 360);
+      }
       setRole('owner');
     })();
 
