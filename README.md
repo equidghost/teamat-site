@@ -10,13 +10,18 @@ teamat-site/
 ├─ index.html        # 메인 페이지 (히어로 · 회사소개 · 서비스 · 브랜드 · 문의)
 ├─ terms.html        # 이용약관
 ├─ privacy.html      # 개인정보처리방침
+├─ account-deletion.html # 계정·데이터 삭제 안내
+├─ 404.html          # Not Found 페이지
 ├─ styles.css        # 전체 디자인 (네이비 + 로열블루)
-└─ assets/
-   ├─ logo-symbol.svg      # A 심볼 (헤더용, 파랑)
-   ├─ logo-symbol.png      # A 심볼 PNG (512px)
-   ├─ logo-white.svg       # A 심볼 (흰색, 어두운 배경/푸터용)
-   ├─ favicon.svg          # 브라우저 탭 아이콘
-   └─ apple-touch-icon.png # 모바일 홈화면 아이콘
+├─ vercel.json       # Vercel clean URL / 보안 헤더 설정
+├─ robots.txt
+├─ sitemap.xml
+├─ logo-*.png        # TeamAT / Workat 로고
+├─ og-image.png
+├─ favicon.svg
+├─ apple-touch-icon.png
+├─ teamat-clouds.png # 히어로 구름 애니메이션 배경
+└─ teamat-cloud-animation-preview.html # 히어로 애니메이션 시안
 ```
 
 ---
@@ -24,12 +29,12 @@ teamat-site/
 ## 나중에 언제든 바꾸는 법
 
 ### 1) 로고 교체 (가장 쉬움)
-**`assets/logo-symbol.svg` 파일만 새 로고로 덮어쓰면** 사이트 전체(헤더·푸터)에 자동 반영됩니다.
-HTML은 손대지 않아도 됩니다.
-- 진짜 로고 PNG를 쓰고 싶다면: 파일명을 `logo-symbol.png`로 만들어 `assets/`에 넣고,
-  `index.html`·`terms.html`·`privacy.html`의 `src="assets/logo-symbol.svg"` → `src="assets/logo-symbol.png"`로만 바꾸세요.
-- 어두운 배경(푸터·서비스 카드)용 흰색 버전은 `assets/logo-white.svg`를 교체.
-- 탭 아이콘은 `assets/favicon.svg` 교체.
+이 사이트는 배포 루트에 모든 파일을 두는 **flat 구조**입니다. `assets/` 폴더로 옮기면 배포 경로가 깨질 수 있습니다.
+- 헤더 로고: `logo-teamat.png`
+- 푸터 로고: `logo-teamat-white.png`
+- Workat 로고: `logo-workat.png`, `logo-workat-mark.png`
+- 탭 아이콘: `favicon.svg`
+- 모바일 홈화면 아이콘: `apple-touch-icon.png`
 
 ### 2) 글자/문구 교체
 `index.html`에서 `<!-- [편집 가능] -->` 주석이 붙은 부분이 바꾸면 좋은 곳입니다.
