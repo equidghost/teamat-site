@@ -504,10 +504,6 @@ a { color: inherit; text-decoration: none; }
 .feature .visual#workat-preview:target .workat-preview-mock {
   animation: teamat-preview-card-cue 1.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
-.workat-preview-shell.is-guiding .preview-experience-cue,
-.feature .visual#workat-preview:target .preview-experience-cue {
-  animation: teamat-preview-experience-pop 1.22s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
 .preview-tabs {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -536,46 +532,6 @@ a { color: inherit; text-decoration: none; }
   background: #fff;
   color: var(--blue-700);
   box-shadow: 0 10px 22px rgba(3, 20, 50, 0.16);
-}
-.preview-experience-cue {
-  justify-self: end;
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 34px;
-  max-width: 100%;
-  margin: -2px 6px -2px 0;
-  padding: 7px 12px;
-  border: 1px solid rgba(219, 234, 254, 0.56);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.94);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.2;
-  white-space: nowrap;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 12px 26px rgba(3, 20, 50, 0.15), inset 0 1px 0 rgba(255,255,255,0.18);
-  animation: teamat-preview-experience-idle 2.8s ease-in-out infinite;
-}
-.preview-experience-cue::after {
-  content: "";
-  position: absolute;
-  right: 22px;
-  bottom: -8px;
-  width: 10px;
-  height: 10px;
-  border-right: 1px solid rgba(219, 234, 254, 0.56);
-  border-bottom: 1px solid rgba(219, 234, 254, 0.56);
-  background: rgba(255, 255, 255, 0.18);
-  transform: rotate(45deg);
-}
-.preview-experience-cue svg {
-  flex: none;
-  animation: teamat-preview-experience-arrow 1.25s ease-in-out infinite;
 }
 .preview-cta {
   position: relative;
@@ -895,19 +851,6 @@ a { color: inherit; text-decoration: none; }
   32% { transform: translateY(-5px) scale(1.012); }
   58% { transform: translateY(-2px) scale(1.004); }
 }
-@keyframes teamat-preview-experience-idle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-@keyframes teamat-preview-experience-arrow {
-  0%, 100% { transform: translateY(-1px); opacity: 0.74; }
-  50% { transform: translateY(3px); opacity: 1; }
-}
-@keyframes teamat-preview-experience-pop {
-  0% { transform: translateY(6px) scale(0.96); opacity: 0; }
-  42% { transform: translateY(-5px) scale(1.02); opacity: 1; }
-  76%, 100% { transform: translateY(0) scale(1); opacity: 1; }
-}
 @keyframes teamat-preview-cta-cue {
   0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 14px 30px rgba(3, 20, 50, 0.18); }
   40% { transform: translateY(-4px) scale(1.018); box-shadow: 0 20px 42px rgba(3, 20, 50, 0.26); }
@@ -954,8 +897,6 @@ a { color: inherit; text-decoration: none; }
   .feature .visual#workat-preview:target .preview-tab.is-active,
   .workat-preview-shell.is-guiding .workat-preview-mock,
   .feature .visual#workat-preview:target .workat-preview-mock,
-  .preview-experience-cue,
-  .preview-experience-cue svg,
   .workat-preview-shell.is-guiding .preview-cta,
   .feature .visual#workat-preview:target .preview-cta,
   .workat-preview-shell.is-guiding .preview-cta::after,
