@@ -299,6 +299,44 @@
       </div>
     </section>
 
+    <!-- ===== Trust & Support ===== -->
+    <section class="section trust-section" id="trust">
+      <div class="container">
+        <div class="trust-layout">
+          <div class="trust-copy">
+            <span class="kicker">Trust &amp; Support</span>
+            <h2>서비스 이용에 필요한 정보를 투명하게 제공합니다.</h2>
+            <p>
+              Workat을 사용하는 과정에서 필요한 약관, 개인정보 처리, 계정·데이터 삭제 요청,
+              그리고 출시 준비 현황을 한곳에서 확인할 수 있습니다.
+            </p>
+          </div>
+          <div class="trust-links-grid" aria-label="서비스 신뢰 및 지원 링크">
+            <a class="trust-link-card" href="privacy.html">
+              <span class="trust-link-label">Privacy</span>
+              <strong>개인정보처리방침</strong>
+              <span>수집 항목과 보유 기간, 권리 행사를 확인합니다.</span>
+            </a>
+            <a class="trust-link-card" href="terms.html">
+              <span class="trust-link-label">Terms</span>
+              <strong>이용약관</strong>
+              <span>Workat 서비스 이용 조건과 책임 범위를 확인합니다.</span>
+            </a>
+            <a class="trust-link-card" href="account-deletion.html">
+              <span class="trust-link-label">Account</span>
+              <strong>계정 · 데이터 삭제</strong>
+              <span>계정 및 개인 데이터 삭제 요청 절차를 안내합니다.</span>
+            </a>
+            <a class="trust-link-card trust-link-card-soft" href="teamat-apple-release-readiness-animation.html">
+              <span class="trust-link-label">Ready</span>
+              <strong>출시 준비 시안</strong>
+              <span>서비스 신뢰 요소와 출시 전 점검 흐름을 확인합니다.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Contact ===== -->
     <section class="section alt" id="contact">
       <div class="container">
@@ -338,6 +376,7 @@
           <a href="terms.html">이용약관</a>
           <a href="privacy.html">개인정보처리방침</a>
           <a href="account-deletion.html">계정 삭제</a>
+          <a href="teamat-apple-release-readiness-animation.html">출시 준비</a>
         </div>
       </div>
       <div class="footer-legal">
@@ -511,7 +550,7 @@
       if (!('IntersectionObserver' in window)) return; // 구형 브라우저: 그대로 표시
 
       var targets = document.querySelectorAll(
-        '.hero-inner, .section-head, .card, .feature, .contact-box, .policy-body'
+        '.hero-inner, .section-head, .card, .feature, .trust-layout, .trust-link-card, .contact-box, .policy-body'
       );
       if (!targets.length) return;
 
